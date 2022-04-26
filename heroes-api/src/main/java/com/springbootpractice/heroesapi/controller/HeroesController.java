@@ -31,13 +31,19 @@ public class HeroesController {
 
     @PostMapping("/heroes")
     public Heroes addHero(@RequestBody Heroes newHero) {
-      return  repository.save(newHero);
+
+        return repository.save(newHero);
     }
 
-//    @PutMapping("/heroes/{id}")
-//    public Heroes updateHero(@RequestBody Heroes updatedHero, @PathVariable long id) {
-//        return repository.save(updatedHero);
-//    }
+    @PutMapping("/heroes/{id}")
+    public Optional<Heroes> updateHero(@RequestBody Heroes updatedHero, @PathVariable long id) {
+        return repository.findById(id).map( update -> {
+            update.setHeroName(updatedHero.getHeroName());
+            update.setSecretIdentity(updatedHero.getSecretIdentity());
+            update.setTeamName(updatedHero.getTeamName());
+            return repository.save(update);
+        });
+    }
 
 
     @DeleteMapping ("/heroes/{id}")

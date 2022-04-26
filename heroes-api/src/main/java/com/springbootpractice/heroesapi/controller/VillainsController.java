@@ -1,5 +1,6 @@
 package com.springbootpractice.heroesapi.controller;
 
+import com.springbootpractice.heroesapi.model.Heroes;
 import com.springbootpractice.heroesapi.model.Villains;
 import com.springbootpractice.heroesapi.repository.VillainsInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,22 @@ public class VillainsController {
     @PostMapping("/villains")
     public Villains addVillain(@RequestBody Villains newVillain) {
       return  repository.save(newVillain);
+    }
+
+    @PutMapping("/villains/{id}")
+    public Optional<Villains> updateVillain(@RequestBody Villains updatedVillain, @PathVariable long id) {
+        return repository.findById(id).map( update -> {
+            update.setVillainName(updatedVillain.getVillainName());
+            update.setSecretIdentity(updatedVillain.getSecretIdentity());
+            update.setTeamName(updatedVillain.getTeamName());
+            return repository.save(update);
+        });
+    }
+
+
+    @DeleteMapping ("/villains/{id}")
+    public void deleteVillain(@PathVariable long id) {
+        repository.deleteById(id);
     }
 
 

@@ -5,7 +5,7 @@ INSERT INTO heroes (id, secret_identity, hero_name, team_name) VALUES
   (4, 'Arthur Curry', 'Aquaman', 'Justice League');
 
 INSERT INTO villains (id, secret_identity, villain_name, team_name) VALUES
-  (1, 'Lex Luthor', 'Lex  Luthor', 'Legion of Doom'),
+  (1, 'Lex Luthor', 'Lex Luthor', 'Legion of Doom'),
   (2, '???', 'Joker', 'Injustice League'),
   (3, 'Barbara Minerva', 'Cheetah', 'Injustice League'),
   (4, 'David Hyde', 'Black Manta', 'Legion of Doom');

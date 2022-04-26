@@ -44,7 +44,7 @@ public class Villains {
         return villainName;
     }
 
-    public void setVillainNameName(String villainName) {
+    public void setVillainName(String villainName) {
         this.villainName = villainName;
     }
 

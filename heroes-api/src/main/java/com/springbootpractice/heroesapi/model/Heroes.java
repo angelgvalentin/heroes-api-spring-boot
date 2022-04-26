@@ -1,15 +1,26 @@
 package com.springbootpractice.heroesapi.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+
+import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity
 public class Heroes {
 
     @Id
-    @GeneratedValue
+    @SequenceGenerator(
+            name = "hero_sequence",
+            sequenceName = "hero_sequence",
+            allocationSize = 5
+
+
+    )
+    @GeneratedValue(
+            strategy = SEQUENCE,
+            generator = "hero_sequence"
+
+    )
     private long id;
 
     private String heroName;
