@@ -9,7 +9,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class Heroes {
 
     @Id
-    @GeneratedValue(
+    @GeneratedValue( //the ID does not need to go into the data.sql file to be seeded since it will be generated here
             strategy = IDENTITY
 
     )
@@ -18,9 +18,10 @@ public class Heroes {
     private String heroName;
     private String secretIdentity;
     private String teamName;
+    private String image;
 
 
-    //NO ARGS Constructor - check if this is where it goes????????
+    //NO ARGS Constructor
     public Heroes ( ) { };
 
 
@@ -29,10 +30,11 @@ public class Heroes {
     //CONSTRUCTOR - test to see if you can populate the API with some data on start up from HeroesController using this constructor
         //Also check if the ID being a generated value has to go in the constructor or not
 
-    public Heroes(String heroName, String secretIdentity, String teamName) {
+    public Heroes(String heroName, String secretIdentity, String teamName, String image) {
         this.heroName = heroName;
         this.secretIdentity = secretIdentity;
         this.teamName = teamName;
+        this.image = image;
     }
 
     public long getId() {
@@ -65,5 +67,13 @@ public class Heroes {
 
     public void setTeamName(String teamName) {
         this.teamName = teamName;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
