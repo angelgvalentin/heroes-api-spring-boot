@@ -3,13 +3,18 @@ package com.springbootpractice.heroesapi.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+import static javax.persistence.GenerationType.IDENTITY;
+
+@Entity (name = "Villains")
 public class Villains {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(
+            strategy = IDENTITY
+    )
     private long id;
 
     private String villainName;

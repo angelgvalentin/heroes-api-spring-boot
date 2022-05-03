@@ -3,22 +3,14 @@ package com.springbootpractice.heroesapi.model;
 
 import javax.persistence.*;
 
-import static javax.persistence.GenerationType.SEQUENCE;
+import static javax.persistence.GenerationType.IDENTITY;
 
-@Entity
+@Entity ( name = "Heroes")
 public class Heroes {
 
     @Id
-    @SequenceGenerator(
-            name = "hero_sequence",
-            sequenceName = "hero_sequence",
-            allocationSize = 5
-
-
-    )
     @GeneratedValue(
-            strategy = SEQUENCE,
-            generator = "hero_sequence"
+            strategy = IDENTITY
 
     )
     private long id;
