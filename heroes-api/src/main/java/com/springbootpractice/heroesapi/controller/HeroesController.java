@@ -19,6 +19,7 @@ public class HeroesController {
 
 
     @GetMapping("/heroes")
+    @CrossOrigin(origins = "http://localhost:3000")
     public List<Heroes> getAllHeroes( ) {
         return repository.findAll();
     }
